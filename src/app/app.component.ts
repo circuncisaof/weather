@@ -41,7 +41,7 @@ export class AppComponent {
         nameCity: String(this.formGroup.controls['nameCity'].value),
       }
 
-      this.http.FilterWeather(payload, this.Aqi).subscribe({ next:(data) => this.locals = data })
+      this.http.FilterWeather(payload, this.Aqi).subscribe({ next:(data) => { console.log(data),this.locals = data}  })
     } catch (error) {
       console.log(error)
     } finally {
