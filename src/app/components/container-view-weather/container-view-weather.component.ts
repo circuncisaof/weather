@@ -24,6 +24,7 @@ type Generic = {
 export class ContainerViewWeatherComponent {
   @Input()
   props: ILocation = {} as ILocation;
+  @Input() invisible:boolean = true;
   // test: Generic[] = [];
 
   gen: Varrr = {

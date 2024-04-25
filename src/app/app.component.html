@@ -1,7 +1,20 @@
-<form (ngSubmit)="this.fetchWeatherData()" [formGroup]="formGroup" #formDir="ngForm">
-  <input formControlName="nameCity" required />
-</form>
-<app-button [name]="text" (click)="this.fetchWeatherData()" />
-<app-container-view-weather  [props]="this.locals" />
+<div class="container">
+  <div class="container_form">
+    <form (ngSubmit)="this.fetchWeatherData()" [formGroup]="formGroup" #formDir="ngForm">
+      <input formControlName="nameCity" required />
+    </form>
+  </div>
+  <div class="error" *ngIf="formDir.invalid &&( formDir.touched || formDir.dirty)"  >
+    <p >{{error}}</p>
+
+  </div>
+  <div class="error" *ngIf="!this.has_errors === false" >
+    <p>{{error_serve}}</p>
+  </div>
+  <div  class="view-weather" *ngIf="this.locals.location" >
+    <app-container-view-weather [props]="this.locals" />
+  </div>
 
 
+
+</div>

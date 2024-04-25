@@ -1,20 +1,19 @@
-<div class="container">
+<div class="container" >
   <div class="head_container">
     <div class="text_header">
       <h1>{{props.location.name}}</h1>
     </div>
     <div class="body_container">
       <div class="sub_title">
-        <p>{{props.location.region}}</p>
-        - <p>{{props.location.country}}</p>
+        <p>{{props.location.region}} / {{props.location.country}}</p>
       </div>
     </div>
   </div>
   <div class="container_weather">
-    <div class="body_contianer_weather">
-      {{props.current.temp_c}}
+    <div class="body_contianer_weather_temp">
+      <p>{{props.current.temp_c}}°C</p>
     </div>
-    <div class="body_contianer_weather">
+    <div class="body_contianer_weather_img">
       <img src={{props.current.condition.icon}} alt={{props.current.condition.text}} srcset="">
     </div>
   </div>

@@ -10,6 +10,7 @@ import { ContainerViewWeatherComponent } from './components/container-view-weath
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { LoadingPageComponent } from './components/loading-page/loading-page.component';
+import { MensagemErrorComponent } from './components/messagem-error/mensagem-error.components';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoadingPageComponent } from './components/loading-page/loading-page.com
     ContainerViewWeatherComponent,
     DetailsComponent,
     LoadingPageComponent,
+    MensagemErrorComponent
 
   ],
   imports: [

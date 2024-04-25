@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TQuery } from 'src/Types/search.types';
 import { ILocation } from 'src/_interfaces/ILocation';
@@ -9,7 +9,13 @@ import { WeatherApiService } from 'src/services/weather.api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
+  responses: {[key: string]: string} = {
+    '200': 'ok',
+    '400': 'bad-request',
+    '404': 'none-content-found'
+  }
+
   title = 'weather';
   locals: ILocation = {} as ILocation;
 
@@ -18,35 +24,46 @@ export class AppComponent {
 
   @Input() query:string = "";
   @Input() sub:string = "";
+  @Input() invisible:boolean = false
   details:string = ""
-
-
+  error:Error | string = '*Não pode ser nulo!!';
+  error_serve:string='';
+  has_errors:boolean = false
   formGroup!: FormGroup;
   constructor (private http: WeatherApiService) {}
   ngOnInit() {
     this.formGroup = new FormGroup({
-      nameCity: new FormControl('',[Validators.required])
+      nameCity: new FormControl("",[Validators.required])
     })
   }
+  ngOnDestroy(): void {
+    this.fetchWeatherData()
+  }
 
-  get InputText() {
+  get NameCity(){
     return this.formGroup.get('nameCity')!
   }
 
-  fetchWeatherData() {
+  fetchWeatherData():void {
     if(this.formGroup.invalid) return;
+    if(!this.formGroup.controls['nameCity'].value.trim().length){
+      this.formGroup.controls['nameCity'].reset()
 
-    try {
+    };
+
       const payload: TQuery = {
         nameCity: String(this.formGroup.controls['nameCity'].value),
       }
-
-      this.http.FilterWeather(payload, this.Aqi).subscribe({ next:(data) => { console.log(data),this.locals = data}  })
-    } catch (error) {
-      console.log(error)
-    } finally {
-      this.formGroup.reset()
-    }
+     this.formGroup.reset()
+      this.http.FilterWeather(payload, this.Aqi)
+        .subscribe({next:(data) =>{
+          this.has_errors= false;
+          this.locals = data;
+          }, error: (err) => {
+            this.has_errors = true;
+            this.error_serve = 'Não encontrado!';
+            return err
+          }})
   }
 
 }
