@@ -22,7 +22,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  background-color: aquamarine;
 }
 
 .text_header  h1 {
@@ -44,7 +43,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  background-color:aqua;
 }
 
 .sub_title p {

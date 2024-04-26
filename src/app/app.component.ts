@@ -10,11 +10,11 @@ import { WeatherApiService } from 'src/services/weather.api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy {
-  responses: {[key: string]: string} = {
-    '200': 'ok',
-    '400': 'bad-request',
-    '404': 'none-content-found'
-  }
+  // responses: {[key: string]: string} = {
+  //   '200': 'ok',
+  //   '400': 'bad-request',
+  //   '404': 'none-content-found'
+  // }
 
   title = 'weather';
   locals: ILocation = {} as ILocation;
@@ -24,11 +24,10 @@ export class AppComponent implements OnDestroy {
 
   @Input() query:string = "";
   @Input() sub:string = "";
-  @Input() invisible:boolean = false
-  details:string = ""
+  details:string = "";
   error:Error | string = '*Não pode ser nulo!!';
   error_serve:string='';
-  has_errors:boolean = false
+  has_errors:boolean = false;
   formGroup!: FormGroup;
   constructor (private http: WeatherApiService) {}
   ngOnInit() {

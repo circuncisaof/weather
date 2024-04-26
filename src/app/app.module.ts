@@ -8,7 +8,6 @@ import { TextComponent } from './components/text/text.component';
 import { FilterPipe } from './filter.pipe';
 import { ContainerViewWeatherComponent } from './components/container-view-weather/container-view-weather.component';
 import { HttpClientModule } from '@angular/common/http';
-import { DetailsComponent } from './components/details/details.component';
 import { LoadingPageComponent } from './components/loading-page/loading-page.component';
 import { MensagemErrorComponent } from './components/messagem-error/mensagem-error.components';
 
@@ -19,9 +18,8 @@ import { MensagemErrorComponent } from './components/messagem-error/mensagem-err
     TextComponent,
     FilterPipe,
     ContainerViewWeatherComponent,
-    DetailsComponent,
     LoadingPageComponent,
-    MensagemErrorComponent
+    MensagemErrorComponent,
 
   ],
   imports: [
