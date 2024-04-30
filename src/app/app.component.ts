@@ -10,13 +10,10 @@ import { WeatherApiService } from 'src/services/weather.api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnDestroy {
-  // responses: {[key: string]: string} = {
-  //   '200': 'ok',
-  //   '400': 'bad-request',
-  //   '404': 'none-content-found'
-  // }
 
-  title = 'weather';
+
+  weather:string = 'Weather your app!';
+  footer_weather:string = 'Desenvolvido por Fabio Eduardo Circuncisao'
   locals: ILocation = {} as ILocation;
 
   @Input() text:string = "Search";

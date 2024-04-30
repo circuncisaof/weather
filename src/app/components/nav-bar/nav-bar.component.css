@@ -1,0 +1,46 @@
+.navBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+
+.navBarImg {
+  width: 100px;
+  height: 50px;
+}
+
+.navBarImg_mocao {
+  display: flex;
+}
+.navBarImg_mocao {
+  align-items: center;
+  width: 100px;
+  height: 50px;
+}
+
+.navBarImg_mocao img {
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  margin:10px 20px 2px 15px;
+  padding: 2px 2px 2px 2px;
+}
+.navBarImg img {
+  width: 25px;
+  height: 25px;
+  padding: 2px 2px 2px 2px;
+}
+.header {
+  height: 50px;
+  width: 270px;
+  align-items: center;
+  justify-content: center;
+}
+
+.header h4 {
+  font-size: 1em;
+  padding: 2px 2px 2px 2px;
+  margin:10px 20px 2px 15px;
+}
